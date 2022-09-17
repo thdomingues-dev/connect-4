@@ -1,6 +1,6 @@
 import { act, renderHook } from "@testing-library/react";
 import { usePlayPiece } from "hooks";
-import { RecoilRoot, useRecoilValue } from "recoil";
+import { RecoilRoot, useRecoilValue, useResetRecoilState } from "recoil";
 import { boardState, gameOverState, playerState } from "state";
 import { Board, Player } from "types";
 
@@ -11,6 +11,7 @@ const render = () => {
       board: useRecoilValue(boardState),
       player: useRecoilValue(playerState),
       gameOver: useRecoilValue(gameOverState),
+      clearBoard: useResetRecoilState(boardState),
     }),
     {
       wrapper: RecoilRoot,
@@ -24,6 +25,11 @@ const render = () => {
         result.current.play(col);
       });
     },
+    clearBoard: () => {
+      act(() => {
+        result.current.clearBoard();
+      })
+    },
     assertGame: (player: Player, gameOver: boolean, board: Board) => {
       expect(result.current.board).toEqual(board);
       expect(result.current.player).toEqual(player);
@@ -32,8 +38,11 @@ const render = () => {
   };
 };
 
+
 test("should win with 4 in a row vertically", () => {
-  const { play, assertGame } = render();
+  const { play, assertGame, clearBoard } = render();
+
+  clearBoard();
 
   [0, 1, 0, 1, 0, 1, 0].forEach(play);
 
@@ -46,7 +55,9 @@ test("should win with 4 in a row vertically", () => {
 });
 
 test("should win with 4 in a row horizontally", () => {
-  const { play, assertGame } = render();
+  const { play, assertGame, clearBoard } = render();
+
+  clearBoard();
 
   [0, 6, 1, 6, 3, 6, 4, 5, 2].forEach(play);
 
@@ -54,8 +65,32 @@ test("should win with 4 in a row horizontally", () => {
   assertGame(1, true, [[1], [1], [1], [1], [1], [2], [2, 2, 2]]);
 });
 
+test("should win with 4 in row diagonally positive", () => {
+  const { play, assertGame, clearBoard } = render();
+
+  clearBoard();
+
+  [0, 1, 1, 2, 2, 1, 2, 3, 3, 3, 3].forEach(play);
+
+  // Player 1 won the game!
+  assertGame(1, true, [[1], [2, 1, 2], [2, 1, 1], [2, 1, 2, 1], [], [], []]);
+});
+
+test("should win with 4 in row diagonally negative", () => {
+  const { play, assertGame, clearBoard } = render();
+
+  clearBoard();
+
+  [3, 2, 2, 1, 1, 0, 1, 0, 0, 1, 0].forEach(play);
+
+  // Player 1 won the game!
+  assertGame(1, true, [[2, 2, 1, 1], [2, 1, 1, 2], [2, 1], [1], [], [], []]);
+});
+
 test("should not play a piece when the column is full", () => {
-  const { play, assertGame } = render();
+  const { play, assertGame, clearBoard } = render();
+
+  clearBoard();
 
   [0, 0, 0, 0, 0, 0].forEach(play);
 
