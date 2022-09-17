@@ -5,9 +5,10 @@ import GameProgress from "components/GameProgress";
 import GameTitle from "components/GameTitle";
 import { FC } from "react";
 import { RecoilRoot } from "recoil";
+import { theme } from 'config/theme/custom-chakra-ui-themes';
 
 const App: FC = () => (
-  <ChakraProvider>
+  <ChakraProvider theme={theme}>
     <RecoilRoot>
       <Flex height='100vh' alignItems='flex-start'>
         <Container as={VStack} pt={12}>
