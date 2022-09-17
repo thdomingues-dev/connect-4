@@ -1,5 +1,5 @@
 import { Heading } from "@chakra-ui/react";
-import { playerName } from "const";
+import { playerName } from "config/const";
 import { FC } from "react";
 import { useRecoilValue } from "recoil";
 import { gameOverState, playerState } from "state";

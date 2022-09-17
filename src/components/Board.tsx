@@ -1,5 +1,5 @@
 import { Circle, Flex } from "@chakra-ui/react";
-import { boardRows, playerColor } from "const";
+import { boardRows, playerColor } from "config/const";
 import { usePlayPiece } from "hooks";
 import { FC } from "react";
 import { useRecoilValue } from "recoil";

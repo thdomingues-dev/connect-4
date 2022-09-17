@@ -1,4 +1,4 @@
-import { boardRows } from "const";
+import { boardRows } from "config/const";
 import { useRecoilState } from "recoil";
 import { boardState, gameOverState, playerState } from "state";
 

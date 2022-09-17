@@ -1,4 +1,4 @@
-import { boardCols } from "const";
+import { boardCols } from "config/const";
 import { atom } from "recoil";
 import { Board, Player } from "types";
 
