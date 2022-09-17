@@ -1,5 +1,6 @@
-import { Button } from "@chakra-ui/react";
 import { FC } from "react";
+import { Button } from "@chakra-ui/react";
+import { RepeatIcon } from "@chakra-ui/icons";
 import { useRecoilValue, useResetRecoilState } from "recoil";
 import { boardState, gameOverState, playerState } from "state";
 
@@ -16,7 +17,7 @@ const GameControls: FC = () => {
   };
 
   return (
-    <Button onClick={handleReset} isDisabled={!board.some((col) => col.length)}>
+    <Button onClick={handleReset} isDisabled={!board.some((col) => col.length)} leftIcon={<RepeatIcon />}>
       Reset
     </Button>
   );
