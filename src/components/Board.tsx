@@ -16,7 +16,7 @@ const Board: FC = () => {
   const gameOver = useRecoilValue(gameOverState);
 
   return (
-    <Flex justify="center">
+    <Flex justify="center" shadow='lg' borderRadius='md' px='5' pb='5'>
       {board.map((col, i) => (
         <Flex
           key={i}
@@ -28,7 +28,7 @@ const Board: FC = () => {
           {padCol(col).map((p, j) => (
             <Circle
               m={1}
-              size="40px"
+              size="50px"
               key={`${i}-${j}`}
               boxShadow="inner"
               bg={playerColor[p as Player] || "gray.300"}
@@ -36,7 +36,7 @@ const Board: FC = () => {
           ))}
           <Circle
             m={1}
-            size="40px"
+            size="50px"
             boxShadow="base"
             visibility="hidden"
             bg={playerColor[player]}
