@@ -34,5 +34,6 @@ yarn test:e2e
 - Typescript
 - Create React App
 - React Testing Library
+- [Cypress](https://www.cypress.io/)
 - [Chakra UI](https://chakra-ui.com/docs/components)
 - [RecoilJS](https://recoiljs.org/)
