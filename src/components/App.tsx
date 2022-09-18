@@ -1,4 +1,4 @@
-import { ChakraProvider, Container, VStack, Flex } from "@chakra-ui/react";
+import { ChakraProvider, Container, VStack } from "@chakra-ui/react";
 import Board from "components/Board";
 import GameControls from "components/GameControls";
 import GameProgress from "components/GameProgress";
@@ -10,14 +10,14 @@ import { theme } from 'config/theme/custom-chakra-ui-themes';
 const App: FC = () => (
   <ChakraProvider theme={theme}>
     <RecoilRoot>
-      <Flex height='100vh' alignItems='flex-start'>
-        <Container as={VStack} pt={12}>
+      <Container pt={12}>
+        <VStack spacing={{ base: 4, md: 8 }}>
           <GameTitle />
           <Board />
           <GameProgress />
           <GameControls />
-        </Container>
-      </Flex>
+        </VStack>
+      </Container>
     </RecoilRoot>
   </ChakraProvider>
 );
