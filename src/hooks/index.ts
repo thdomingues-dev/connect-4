@@ -1,1 +1,1 @@
-export { default as usePlayPiece } from "./usePlayPiece";
+export { default as usePlayPiece } from './usePlayPiece'

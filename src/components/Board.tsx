@@ -18,8 +18,7 @@ const Board: FC = () => {
 
   return (
     <Flex justify="center" shadow='lg' borderRadius='md' px='5' pb='5'>
-      {board.map((col, i) => (
-        <Flex
+      {board.map((col, i) => (<Flex
           key={i}
           role="group"
           onClick={() => play(i)}

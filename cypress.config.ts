@@ -1,4 +1,4 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress'
 
 export default defineConfig({
   projectId: 'connect-4',
@@ -13,4 +13,4 @@ export default defineConfig({
     specPattern: 'cypress/e2e/**/*.e2e-spec.{ts,tsx}',
     supportFile: 'cypress/support/e2e.ts',
   },
-});
+})
