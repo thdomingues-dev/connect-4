@@ -28,7 +28,7 @@ const Board: FC = () => {
           {padCol(col).map((p, j) => (
             <Circle
               m={1}
-              size="50px"
+              size={{ base: '30px', sm: '35px', md: '40px', lg: '45px'}}
               key={`${i}-${j}`}
               boxShadow="inner"
               bg={playerColor[p as Player] || "gray.300"}
@@ -36,7 +36,7 @@ const Board: FC = () => {
           ))}
           <Circle
             m={1}
-            size="50px"
+            size={{ base: '30px', sm: '35px', md: '40px', lg: '45px'}}
             boxShadow="base"
             visibility="hidden"
             bg={playerColor[player]}
