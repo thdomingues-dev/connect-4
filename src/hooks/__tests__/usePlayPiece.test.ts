@@ -12,6 +12,7 @@ const render = () => {
       player: useRecoilValue(playerState),
       gameOver: useRecoilValue(gameOverState),
       clearBoard: useResetRecoilState(boardState),
+      clearGameOver: useResetRecoilState(gameOverState),
     }),
     {
       wrapper: RecoilRoot,
@@ -25,9 +26,10 @@ const render = () => {
         result.current.play(col);
       });
     },
-    clearBoard: () => {
+    resetGame: () => {
       act(() => {
         result.current.clearBoard();
+        result.current.clearGameOver();
       })
     },
     assertGame: (player: Player, gameOver: boolean, board: Board) => {
@@ -40,9 +42,9 @@ const render = () => {
 
 
 test("should win with 4 in a row vertically", () => {
-  const { play, assertGame, clearBoard } = render();
+  const { play, assertGame, resetGame } = render();
 
-  clearBoard();
+  resetGame();
 
   [0, 1, 0, 1, 0, 1, 0].forEach(play);
 
@@ -55,9 +57,9 @@ test("should win with 4 in a row vertically", () => {
 });
 
 test("should win with 4 in a row horizontally", () => {
-  const { play, assertGame, clearBoard } = render();
+  const { play, assertGame, resetGame } = render();
 
-  clearBoard();
+  resetGame();
 
   [0, 6, 1, 6, 3, 6, 4, 5, 2].forEach(play);
 
@@ -66,9 +68,9 @@ test("should win with 4 in a row horizontally", () => {
 });
 
 test("should win with 4 in row diagonally positive", () => {
-  const { play, assertGame, clearBoard } = render();
+  const { play, assertGame, resetGame } = render();
 
-  clearBoard();
+  resetGame();
 
   [0, 1, 1, 2, 2, 1, 2, 3, 3, 3, 3].forEach(play);
 
@@ -77,9 +79,9 @@ test("should win with 4 in row diagonally positive", () => {
 });
 
 test("should win with 4 in row diagonally negative", () => {
-  const { play, assertGame, clearBoard } = render();
+  const { play, assertGame, resetGame } = render();
 
-  clearBoard();
+  resetGame();
 
   [3, 2, 2, 1, 1, 0, 1, 0, 0, 1, 0].forEach(play);
 
@@ -88,9 +90,9 @@ test("should win with 4 in row diagonally negative", () => {
 });
 
 test("should not play a piece when the column is full", () => {
-  const { play, assertGame, clearBoard } = render();
+  const { play, assertGame, resetGame } = render();
 
-  clearBoard();
+  resetGame();
 
   [0, 0, 0, 0, 0, 0].forEach(play);
 

@@ -4,12 +4,16 @@ export const theme = extendTheme({
   fonts: {
     heading: `'Ubuntu', sans-serif`,
   },
-  components: {
-    Button: {
-      baseStyle: {
-        fontWeight: 'normal',
+  styles: {
+    global: {
+      body: {
         fontFamily: `'Ubuntu', sans-serif`,
+        fontWeight: 'normal',
       },
-    }
-  }
+      a: {
+        fontFamily: `'Ubuntu', sans-serif`,
+        fontWeight: 'normal',
+      }
+    },
+  },
 });
