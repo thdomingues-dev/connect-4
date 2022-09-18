@@ -6,7 +6,7 @@ interface GameTitleProps {
 }
 
 const GameTitle: FC<GameTitleProps> = ({ title = 'Connect 4' }) => {
-  return <Heading as="h1">{title}</Heading>
+  return <Heading as="h1" fontWeight='medium'>{title}</Heading>
 }
 
 export default GameTitle;
