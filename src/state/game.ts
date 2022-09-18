@@ -1,6 +1,6 @@
 import { boardCols } from "config/const";
 import { atom } from "recoil";
-import { Board, Player, PlayerName } from "types";
+import { Board, Player, PlayerName, PlayerColor } from "types";
 
 interface AtomEffect { 
   setSelf: (args: any) => void
@@ -39,6 +39,20 @@ export const playerNameState = atom<PlayerName>({
     1: "Red",
     2: "Yellow",
   },
+  effects: [
+    localStorageEffect('playerNameState')
+  ]
+});
+
+export const playerColorState = atom<PlayerColor>({
+  key: "playerColorState",
+  default: {
+    1: '#FC8181',
+    2: '#FAF089',
+  },
+  effects: [
+    localStorageEffect('playerColorState')
+  ]
 });
 
 export const gameOverState = atom<boolean>({
