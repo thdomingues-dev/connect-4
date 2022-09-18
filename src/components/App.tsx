@@ -1,11 +1,11 @@
-import { ChakraProvider, Container, VStack } from "@chakra-ui/react";
-import Board from "components/Board";
-import GameControls from "components/GameControls";
-import GameProgress from "components/GameProgress";
-import GameTitle from "components/GameTitle";
-import { FC } from "react";
-import { RecoilRoot } from "recoil";
-import { theme } from 'config/theme/custom-chakra-ui-themes';
+import { ChakraProvider, Container, VStack } from '@chakra-ui/react'
+import Board from 'components/Board'
+import GameControls from 'components/GameControls'
+import GameProgress from 'components/GameProgress'
+import GameTitle from 'components/GameTitle'
+import { FC } from 'react'
+import { RecoilRoot } from 'recoil'
+import { theme } from 'config/theme/custom-chakra-ui-themes'
 
 const App: FC = () => (
   <ChakraProvider theme={theme}>
@@ -20,6 +20,6 @@ const App: FC = () => (
       </Container>
     </RecoilRoot>
   </ChakraProvider>
-);
+)
 
-export default App;
+export default App
