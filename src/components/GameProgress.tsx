@@ -1,12 +1,13 @@
 import { Heading } from "@chakra-ui/react";
-import { playerName } from "config/const";
 import { FC } from "react";
 import { useRecoilValue } from "recoil";
-import { gameOverState, playerState } from "state";
+import { gameOverState, playerState, playerNameState } from "state";
 
 const GameProgress: FC = () => {
   const player = useRecoilValue(playerState);
+  const playerName = useRecoilValue(playerNameState);
   const gameOver = useRecoilValue(gameOverState);
+
   const name = playerName[player];
 
   return (
