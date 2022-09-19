@@ -1,9 +1,10 @@
 import { boardRows } from 'config/const'
 import { useRecoilState } from 'recoil'
 import { boardState, gameOverState, playerState } from 'state'
+import { Player } from 'types'
 
 const testWin = (arr: number[]): boolean => /1{4}|2{4}/.test(arr.join(''))
-const testPositiveDiagonalWin = (arr: number[][], player: number): boolean => {
+const testPositiveDiagonalWin = (arr: Player[][], player: Player): boolean => {
   for (let i = 0; i <= arr.length - 1; i++) {
     for (let j = 0; j <= arr[i].length - 1; j++) {
       if (i + 3 >= arr.length) return false
@@ -22,7 +23,7 @@ const testPositiveDiagonalWin = (arr: number[][], player: number): boolean => {
   return false
 }
 
-const testNegativeDiagonalWin = (arr: number[][], player: number): boolean => {
+const testNegativeDiagonalWin = (arr: Player[][], player: Player): boolean => {
   for (let i = arr.length - 1; i >= 0; i--) {
     for (let j = arr[i].length - 1; j >= 0; j--) {
       if (i - 3 < 0) return false
