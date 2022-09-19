@@ -9,7 +9,7 @@ export const theme = extendTheme({
     },
     Heading: {
       baseStyle: {
-        fontFamily: `'Poppins', sans-serif`,
+        fontFamily: `'Ubuntu', sans-serif`,
         fontWeight: 'regular',
       },
     },
@@ -17,10 +17,10 @@ export const theme = extendTheme({
   styles: {
     global: {
       body: {
-        fontFamily: `'Ubuntu', sans-serif`,
+        fontFamily: `'Poppins', sans-serif`,
       },
       a: {
-        fontFamily: `'Ubuntu', sans-serif`,
+        fontFamily: `'Poppins', sans-serif`,
       },
     },
   },

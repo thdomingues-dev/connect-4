@@ -51,7 +51,7 @@ const GameSettingsModal: FC<GameSettingsModalProps> = ({ isModalOpen, onModalClo
     <Modal isOpen={isModalOpen} onClose={onModalClose} motionPreset="slideInBottom" size={{ base: 'xs', md: 'md' }}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Connect 4 - Settings</ModalHeader>
+        <ModalHeader fontFamily="Ubuntu">Connect 4 - Settings</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <Stack spacing={8}>
