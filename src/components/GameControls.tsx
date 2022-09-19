@@ -10,7 +10,6 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
-  FormControl,
   Input,
   InputGroup,
   InputLeftElement,
@@ -55,69 +54,59 @@ const GameSettingsModal: FC<GameSettingsModalProps> = ({ isModalOpen, onModalClo
         <ModalHeader>Connect 4 - Settings</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <FormControl>
-            <Stack spacing={12}>
-              <Stack spacing={4}>
-                <Heading as="h5" size="sm" fontWeight="medium">
-                  Player 1
-                </Heading>
-                <InputGroup>
-                  <InputLeftElement pointerEvents="none">
-                    <FiUsersIcon />
-                  </InputLeftElement>
-                  <Input value={customNamePlayer1} onChange={event => setCustomNamePlayer1(event.target.value)} />
-                </InputGroup>
-                <RadioGroup
-                  onChange={setCustomColorPlayer1}
-                  value={customColorPlayer1}
-                  defaultValue={customColorPlayer1}
-                >
-                  <Stack direction="row">
-                    {Object.entries(colors).map((color, index) => {
-                      const colorFormatted = formatColor(color[0])
+          <Stack spacing={8}>
+            <Stack spacing={4}>
+              <Heading as="h5" size="sm" fontWeight="semibold">
+                Player 1
+              </Heading>
+              <InputGroup>
+                <InputLeftElement pointerEvents="none">
+                  <FiUsersIcon />
+                </InputLeftElement>
+                <Input value={customNamePlayer1} onChange={event => setCustomNamePlayer1(event.target.value)} />
+              </InputGroup>
+              <RadioGroup onChange={setCustomColorPlayer1} value={customColorPlayer1} defaultValue={customColorPlayer1}>
+                <Stack direction="row">
+                  {Object.entries(colors).map((color, index) => {
+                    const colorFormatted = formatColor(color[0])
 
-                      return (
-                        <Radio key={index} value={color[1]} colorScheme={color[0]}>
-                          {colorFormatted}
-                        </Radio>
-                      )
-                    })}
-                  </Stack>
-                </RadioGroup>
-              </Stack>
-              <Stack spacing={4}>
-                <Heading as="h5" size="sm" fontWeight="medium">
-                  Player 2
-                </Heading>
-                <InputGroup>
-                  <InputLeftElement pointerEvents="none">
-                    <FiUsersIcon />
-                  </InputLeftElement>
-                  <Input value={customNamePlayer2} onChange={event => setCustomNamePlayer2(event.target.value)} />
-                </InputGroup>
-                <RadioGroup
-                  onChange={setCustomColorPlayer2}
-                  value={customColorPlayer2}
-                  defaultValue={customColorPlayer2}
-                >
-                  <Stack direction="row">
-                    {Object.entries(colors).map((color, index) => {
-                      const colorFormatted = formatColor(color[0])
-
-                      return (
-                        <Radio key={index} value={color[1]} colorScheme={color[0]}>
-                          {colorFormatted}
-                        </Radio>
-                      )
-                    })}
-                  </Stack>
-                </RadioGroup>
-              </Stack>
+                    return (
+                      <Radio key={index} value={color[1]} colorScheme={color[0]}>
+                        {colorFormatted}
+                      </Radio>
+                    )
+                  })}
+                </Stack>
+              </RadioGroup>
             </Stack>
-          </FormControl>
+            <Stack spacing={4}>
+              <Heading as="h5" size="sm" fontWeight="semibold">
+                Player 2
+              </Heading>
+              <InputGroup>
+                <InputLeftElement pointerEvents="none">
+                  <FiUsersIcon />
+                </InputLeftElement>
+                <Input value={customNamePlayer2} onChange={event => setCustomNamePlayer2(event.target.value)} />
+              </InputGroup>
+              <RadioGroup onChange={setCustomColorPlayer2} value={customColorPlayer2} defaultValue={customColorPlayer2}>
+                <Stack direction="row">
+                  {Object.entries(colors).map((color, index) => {
+                    const colorFormatted = formatColor(color[0])
+
+                    return (
+                      <Radio key={index} value={color[1]} colorScheme={color[0]}>
+                        {colorFormatted}
+                      </Radio>
+                    )
+                  })}
+                </Stack>
+              </RadioGroup>
+            </Stack>
+          </Stack>
         </ModalBody>
         <ModalFooter>
-          <Button onClick={handleModalSave} bg="gray.100" color="black" leftIcon={<CheckIcon />}>
+          <Button onClick={handleModalSave} leftIcon={<CheckIcon />}>
             Save
           </Button>
         </ModalFooter>
