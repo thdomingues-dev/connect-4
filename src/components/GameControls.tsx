@@ -49,7 +49,7 @@ const GameSettingsModal: FC<GameSettingsModalProps> = ({ isModalOpen, onModalClo
 
   return (
     <Modal isOpen={isModalOpen} onClose={onModalClose} motionPreset="slideInBottom" size={{ base: 'xs', md: 'md' }}>
-      <ModalOverlay />
+      <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px) hue-rotate(90deg)" />
       <ModalContent>
         <ModalHeader fontFamily="Ubuntu">Connect 4 - Settings</ModalHeader>
         <ModalCloseButton />
